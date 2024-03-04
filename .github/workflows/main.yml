@@ -18,14 +18,14 @@ jobs:
       - name: Set Up Java
         uses: actions/setup-java@v3.12.0
         with:
-          distribution: 'oracle'
-          java-version: '19.0.2'
+          distribution: "oracle"
+          java-version: "19.0.2"
 
       - name: Set Up Flutter
-        uses: subosito/flutter-action@v2
+        uses: subosito/flutter-action@v2.12.0 # Can be updated once https://github.com/subosito/flutter-action/issues/277 is resolved
         with:
-          flutter-version: '3.16.3'
-          channel: 'stable'
+          flutter-version: "3.16.3"
+          channel: "stable"
 
       - name: Set up debug keystore
         run: |
@@ -39,7 +39,7 @@ jobs:
             -keyalg 'RSA' \
             -keysize 2048 \
             -validity 10000
-        
+
       - name: Quality checks monorepo
         run: |
           ./bin/quality_checks.sh
